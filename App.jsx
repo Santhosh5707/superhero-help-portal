@@ -17,16 +17,16 @@ function Stat({icon:Icon,label,value,sub}){return <div className="stat-card"><di
 function HeroCard({hero,onSelect}){
  const available=hero.status==='Available';
  return <button className="hero-card" onClick={()=>onSelect(hero)}>
-  <div className={`hero-avatar ${hero.color}`}>{hero.emoji}</div>
+  <div className={`hero-avatar ${hero.color}`}>{hero.id==='dasham'?<img src="/dasham-hero.webp" alt="Dasham"/>:hero.emoji}</div>
   <div className="hero-main"><div className="hero-top"><span className="hero-name">{hero.name}</span><span className={`status ${available?'available':'busy'}`}><i/> {hero.status}</span></div>
   <div className="hero-alias">{hero.alias}</div><div className="power-row">{hero.powers.map(p=><span key={p}>{p}</span>)}</div>
   <div className="hero-meta"><span><Clock3 size={13}/> {hero.response}</span><span><Shield size={13}/> {hero.missions} missions</span></div></div><ArrowRight className="card-arrow" size={18}/>
  </button>
 }
 
-function NovaChat({onClose,onToast}){
+function DashamChat({onClose,onToast}){
  const[step,setStep]=useState(0),[input,setInput]=useState(''),[data,setData]=useState({}),[sending,setSending]=useState(false);
- const[messages,setMessages]=useState([{from:'hero',text:"Hey! I'm Nova, your HeroAid guardian. I'm here to listen and help. What's your name?"}]);
+ const[messages,setMessages]=useState([{from:'hero',text:"Namaskaram! I'm Dasham, your HeroAid guardian. I'm here to listen and help. What's your name?"}]);
  const questions=['And how old are you?','Where are you located right now?',"What's the best email address to reach you?",'Thanks. So... tell me. How can I help you?'];
  const add=(from,text)=>setMessages(m=>[...m,{from,text}]);
 
@@ -55,7 +55,7 @@ function NovaChat({onClose,onToast}){
     body:JSON.stringify({
      name:next.name,age:next.age,location:next.location,email:next.email,grievance:next.grievance,
      submitted_at:new Date().toLocaleString('en-IN',{dateStyle:'medium',timeStyle:'short'}),
-     _subject:'🦸 Someone Needs Your Help! — HeroAid',_template:'table'
+     _subject:'🦸 Someone Needs Your Help!',_template:'table'
     })
    });
    const result=await response.json();
@@ -69,10 +69,10 @@ function NovaChat({onClose,onToast}){
  };
 
  return <div className="chat-backdrop">
-  <div className="chatbot" role="dialog" aria-label="Nova superhero chatbot">
-   <div className="chat-head"><div className="chat-hero-mark">✦</div><div><b>Nova · The Guardian</b><small>HEROAID SUPERHERO ASSISTANT · ONLINE</small></div><button onClick={onClose}><X/></button></div>
+  <div className="chatbot" role="dialog" aria-label="Dasham superhero chatbot">
+   <div className="chat-head"><div className="chat-hero-mark">✦</div><div><b>Dasham · The Guardian of Kerala</b><small>HEROAID SUPERHERO ASSISTANT · ONLINE</small></div><button onClick={onClose}><X/></button></div>
    <div className="chat-messages">{messages.map((m,i)=><div key={i} className={`chat-message ${m.from}`}><div>{m.text}</div></div>)}</div>
-   {step<5?<form className="chat-input" onSubmit={send}><input value={input} onChange={e=>setInput(e.target.value)} placeholder={step===4?'Tell Nova what happened...':'Type your answer...'} autoFocus/><button disabled={sending} aria-label="Send"><ArrowRight size={17}/></button></form>:<button className="primary full" onClick={onClose}>Return to HeroAid <ArrowRight size={16}/></button>}
+   {step<5?<form className="chat-input" onSubmit={send}><input value={input} onChange={e=>setInput(e.target.value)} placeholder={step===4?'Tell Dasham what happened...':'Type your answer...'} autoFocus/><button disabled={sending} aria-label="Send"><ArrowRight size={17}/></button></form>:<button className="primary full" onClick={onClose}>Return to HeroAid <ArrowRight size={16}/></button>}
    <div className="chat-privacy">Your details are used only to process this help request.</div>
   </div>
  </div>
@@ -98,12 +98,12 @@ function App(){
 
   <main>
    <section className="hero-banner"><div className="hero-copy"><div className="eyebrow"><span className="pulse-dot"/> LIVE NETWORK · 24/7</div><h1>Help is <em>one hero</em><br/>away.</h1>
-    <p>Connect with Nova, your personal superhero guardian. Tell her what you need through a conversational help experience.</p>
-    <button className="primary big" onClick={()=>setChatOpen(true)}><MessageSquare size={18}/> Talk to Nova <ArrowRight size={17}/></button>
+    <p>Meet Dasham, your Kerala-inspired superhero guardian. Tell him what you need through a conversational help experience.</p>
+    <button className="primary big" onClick={()=>setChatOpen(true)}><MessageSquare size={18}/> Talk to Dasham <ArrowRight size={17}/></button>
     <div className="trust"><span><CheckCircle2 size={14}/> Verified hero</span><span><Zap size={14}/> Avg. response 4 min</span></div>
-   </div><div className="dispatch-visual"><div className="radar"><div className="radar-ring r1"/><div className="radar-ring r2"/><div className="radar-ring r3"/><div className="radar-sweep"/><div className="radar-center"><Crosshair size={25}/></div><span className="ping p1"/><span className="ping p2"/><span className="ping p3"/></div><div className="dispatch-label"><span className="live-dot"/> DISPATCH NETWORK <b>ONLINE</b></div></div></section>
+   </div><div className="dispatch-visual"><div className="dasham-showcase"><img src="/dasham-hero.webp" alt="Dasham, the Guardian of Kerala"/><div className="dasham-caption"><strong>DASHAM</strong><span>THE GUARDIAN OF KERALA</span></div></div><div className="radar"><div className="radar-ring r1"/><div className="radar-ring r2"/><div className="radar-ring r3"/><div className="radar-sweep"/><div className="radar-center"><Crosshair size={25}/></div><span className="ping p1"/><span className="ping p2"/><span className="ping p3"/></div><div className="dispatch-label"><span className="live-dot"/> DISPATCH NETWORK <b>ONLINE</b></div></div></section>
 
-   <section className="stats-grid"><Stat icon={Users} value="5" label="Heroes available" sub="+2 from last hour"/><Stat icon={Activity} value="12" label="Active requests" sub="3 critical"/><Stat icon={Clock3} value="4 min" label="Avg. response" sub="18% faster today"/><Stat icon={CheckCircle2} value="1,284" label="Missions resolved" sub="This month"/></section>
+   <section className="stats-grid"><Stat icon={Users} value="4" label="Heroes available" sub="+2 from last hour"/><Stat icon={Activity} value="12" label="Active requests" sub="3 critical"/><Stat icon={Clock3} value="4 min" label="Avg. response" sub="18% faster today"/><Stat icon={CheckCircle2} value="1,284" label="Missions resolved" sub="This month"/></section>
 
    <section className="content-grid"><div className="panel heroes-panel"><div className="panel-head"><div><div className="eyebrow">HERO DIRECTORY</div><h2>Find your hero</h2></div><button className="text-btn">View all <ArrowRight size={15}/></button></div>
     <div className="controls"><div className="search"><Search size={16}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search heroes or powers..."/></div><div className="filters">{['All','Available','On mission'].map(f=><button key={f} className={filter===f?'selected':''} onClick={()=>setFilter(f)}>{f}</button>)}</div></div>
@@ -115,11 +115,11 @@ function App(){
    </div></section>
 
    <section className="bottom-grid"><div className="panel how-panel"><div className="panel-head"><div><div className="eyebrow">SIMPLE & FAST</div><h2>How HeroAid works</h2></div></div>
-    <div className="steps"><div><b>01</b><span><MessageSquare/></span><h3>Talk to Nova</h3><p>She asks your name, age, location and email through conversation.</p></div><div><b>02</b><span><Crosshair/></span><h3>Share your situation</h3><p>Describe your grievance naturally instead of filling a traditional form.</p></div><div><b>03</b><span><HeartPulse/></span><h3>Notification sent</h3><p>Your request is automatically emailed to the superhero owner.</p></div></div>
+    <div className="steps"><div><b>01</b><span><MessageSquare/></span><h3>Talk to Dasham</h3><p>Dasham asks your name, age, location and email through conversation.</p></div><div><b>02</b><span><Crosshair/></span><h3>Share your situation</h3><p>Describe your grievance naturally instead of filling a traditional form.</p></div><div><b>03</b><span><HeartPulse/></span><h3>Notification sent</h3><p>Your request is automatically emailed to the superhero owner.</p></div></div>
    </div><div className="panel safety-panel"><div className="safety-icon"><Shield/></div><div><div className="eyebrow">SAFETY FIRST</div><h2>For real emergencies</h2><p>HeroAid is a prototype for the TechAscent machine test. In a real emergency, contact your local emergency services.</p></div></div></section>
   </main>
 
-  {!chatOpen&&<button className="chat-fab" onClick={()=>setChatOpen(true)}><MessageSquare size={18}/><span>Talk to Nova</span></button>}
+  {!chatOpen&&<button className="chat-fab" onClick={()=>setChatOpen(true)}><MessageSquare size={18}/><span>Talk to Dasham</span></button>}
 
   {modal&&<div className="modal-backdrop" onMouseDown={e=>e.target===e.currentTarget&&setModal(false)}><form className="modal" onSubmit={submitRequest}><button type="button" className="close" onClick={()=>setModal(false)}><X/></button><div className="eyebrow">EMERGENCY DISPATCH</div><h2>Request hero assistance</h2><p className="modal-sub">Give dispatch enough information to route the right hero.</p>
    <label>Emergency type<select name="issue" required defaultValue=""><option value="" disabled>Select an emergency</option>{issueOptions.map(x=><option key={x}>{x}</option>)}</select></label>
@@ -127,11 +127,11 @@ function App(){
    <label>Short description<textarea name="description" placeholder="What is happening?"/></label><button className="primary big" type="submit"><Siren size={17}/> Dispatch hero <ArrowRight size={17}/></button>
   </form></div>}
 
-  {selectedHero&&<div className="modal-backdrop" onMouseDown={e=>e.target===e.currentTarget&&setSelectedHero(null)}><div className="modal hero-detail"><button className="close" onClick={()=>setSelectedHero(null)}><X/></button><div className={`hero-avatar ${selectedHero.color} large`}>{selectedHero.emoji}</div><div className="eyebrow">HERO PROFILE</div><h2>{selectedHero.name}</h2><p className="modal-sub">{selectedHero.alias} · {selectedHero.specialty}</p><div className="detail-grid"><div><b>{selectedHero.response}</b><span>Typical response</span></div><div><b>{selectedHero.missions}</b><span>Missions completed</span></div></div><div className="power-row detail-powers">{selectedHero.powers.map(p=><span key={p}>{p}</span>)}</div><button className="primary full" onClick={()=>{setSelectedHero(null);setChatOpen(true)}}>Talk to Nova <ArrowRight size={16}/></button></div></div>}
+  {selectedHero&&<div className="modal-backdrop" onMouseDown={e=>e.target===e.currentTarget&&setSelectedHero(null)}><div className="modal hero-detail"><button className="close" onClick={()=>setSelectedHero(null)}><X/></button><div className={`hero-avatar ${selectedHero.color} large`}>{selectedHero.emoji}</div><div className="eyebrow">HERO PROFILE</div><h2>{selectedHero.name}</h2><p className="modal-sub">{selectedHero.alias} · {selectedHero.specialty}</p><div className="detail-grid"><div><b>{selectedHero.response}</b><span>Typical response</span></div><div><b>{selectedHero.missions}</b><span>Missions completed</span></div></div><div className="power-row detail-powers">{selectedHero.powers.map(p=><span key={p}>{p}</span>)}</div><button className="primary full" onClick={()=>{setSelectedHero(null);setChatOpen(true)}}>Talk to Dasham <ArrowRight size={16}/></button></div></div>}
 
-  {chatOpen&&<NovaChat onClose={()=>setChatOpen(false)} onToast={msg=>{setToast(msg);setTimeout(()=>setToast(''),4000)}}/>}
+  {chatOpen&&<DashamChat onClose={()=>setChatOpen(false)} onToast={msg=>{setToast(msg);setTimeout(()=>setToast(''),4000)}}/>}
   {toast&&<div className="toast"><CheckCircle2 size={18}/><span>{toast}</span></div>}
-  <footer>HEROAID · TECHASCENT MACHINE TEST <span>Built with React + Vite · Nova conversational help</span></footer>
+  <footer>HEROAID · TECHASCENT MACHINE TEST <span>Built with React + Vite · Dasham conversational help</span></footer>
  </div>
 }
 export default App;

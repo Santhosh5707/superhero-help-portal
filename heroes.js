@@ -1,9 +1,8 @@
-
 export const heroes = [
-  { id: 1, name: "Nova", alias: "The Guardian", emoji: "✦", color: "violet", powers: ["Flight", "Energy", "Rescue"], status: "Available", response: "4 min", missions: 128, specialty: "High-rise & aerial rescue" },
-  { id: 2, name: "Velocity", alias: "The Flashpoint", emoji: "⚡", color: "amber", powers: ["Speed", "Evacuation", "First Aid"], status: "Available", response: "2 min", missions: 214, specialty: "Rapid emergency response" },
-  { id: 3, name: "Titan", alias: "The Shield", emoji: "◈", color: "blue", powers: ["Strength", "Protection", "Heavy Rescue"], status: "On mission", response: "8 min", missions: 176, specialty: "Structural & heavy rescue" },
-  { id: 4, name: "Cipher", alias: "The Strategist", emoji: "⌁", color: "cyan", powers: ["Tech", "Investigation", "Tracking"], status: "Available", response: "5 min", missions: 96, specialty: "Cyber & investigation support" },
-  { id: 5, name: "Aegis", alias: "The Amazon", emoji: "◉", color: "rose", powers: ["Combat", "Protection", "Medical"], status: "Available", response: "6 min", missions: 143, specialty: "Protection & medical response" },
-  { id: 6, name: "Volt", alias: "The Engineer", emoji: "⚙", color: "orange", powers: ["Technology", "Flight", "Engineering"], status: "Available", response: "7 min", missions: 111, specialty: "Power & infrastructure failures" }
+  {id:'dasham',name:'Dasham',alias:'The Guardian of Kerala',specialty:'Community rescue & rapid assistance',status:'Available',color:'green',emoji:'🦸',powers:['Guardian Pulse','Rapid Response','Rescue Sense'],response:'3 min',missions:428},
+  {id:'velocity',name:'Velocity',alias:'The Rapid Responder',specialty:'Emergency response',status:'Available',color:'violet',emoji:'⚡',powers:['Super Speed','Time Shift'],response:'2 min',missions:312},
+  {id:'titan',name:'Titan',alias:'The Protector',specialty:'Structural rescue',status:'On mission',color:'amber',emoji:'🛡️',powers:['Super Strength','Shield'],response:'6 min',missions:287},
+  {id:'cipher',name:'Cipher',alias:'The Finder',specialty:'Search & intelligence',status:'Available',color:'blue',emoji:'🔎',powers:['Tracking','Signal Trace'],response:'5 min',missions:198},
+  {id:'aegis',name:'Aegis',alias:'The Safeguard',specialty:'Evacuation & protection',status:'On mission',color:'cyan',emoji:'🪽',powers:['Barrier Field','Rescue Shield'],response:'7 min',missions:164},
+  {id:'volt',name:'Volt',alias:'The Power Keeper',specialty:'Power & infrastructure',status:'Available',color:'orange',emoji:'🔋',powers:['Energy Control','Grid Repair'],response:'4 min',missions:221}
 ];
