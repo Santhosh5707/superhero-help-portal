@@ -1,6 +1,6 @@
 
 import React, { useMemo, useState } from "react";
-import { heroes } from "./data/heroes";
+import { heroes } from "./heroes";
 import {
   Activity, ArrowRight, Bell, CheckCircle2, Clock3, Crosshair, Flame,
   HeartPulse, MapPin, Menu, MessageSquare, Search, Shield, Siren,
