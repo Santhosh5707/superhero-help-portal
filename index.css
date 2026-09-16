@@ -13,3 +13,9 @@
 @media(max-width:900px){.dasham-showcase{display:none}}
 
 .hero-avatar img{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:inherit;display:block}.hero-avatar.large img{width:100%;height:100%;}
+
+/* Hero artwork */
+.hero-avatar img{width:100%;height:100%;display:block;object-fit:cover;border-radius:inherit;}
+.hero-avatar.large{overflow:hidden;}
+.hero-avatar.large img{object-position:center 22%;}
+.dasham-showcase img{display:block;width:100%;height:100%;object-fit:cover;}
