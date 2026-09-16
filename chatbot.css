@@ -1,0 +1,22 @@
+
+/* TechAscent required superhero chatbot */
+.chat-backdrop{position:fixed;inset:0;background:#02050b99;backdrop-filter:blur(5px);z-index:40;display:grid;place-items:center;padding:18px}
+.chatbot{width:min(500px,100%);max-height:min(720px,calc(100vh - 36px));display:flex;flex-direction:column;background:#0d1320;border:1px solid #34345c;border-radius:20px;box-shadow:0 35px 100px #000b;overflow:hidden}
+.chat-head{display:flex;align-items:center;gap:11px;padding:15px 17px;border-bottom:1px solid #202a3e;background:linear-gradient(135deg,#151631,#101523)}
+.chat-head button{margin-left:auto;background:none;border:0;color:#75829a}
+.chat-head b{display:block;font:600 13px "Space Grotesk"}
+.chat-head small{display:block;color:#5d6b84;font-size:7px;letter-spacing:1.2px;margin-top:3px}
+.chat-hero-mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;color:#b4aaff;background:#272144;border:1px solid #5b51a5;font-size:20px}
+.chat-messages{padding:18px;overflow:auto;display:flex;flex-direction:column;gap:10px;min-height:300px;max-height:510px;background:radial-gradient(circle at 100% 0,#1a1734 0,transparent 40%)}
+.chat-message{display:flex;max-width:88%;font-size:11px;line-height:1.55}
+.chat-message>div{padding:10px 12px;border-radius:13px}
+.chat-message.hero>div{background:#171d2d;border:1px solid #28334a;color:#d8e0ef;border-top-left-radius:4px}
+.chat-message.user{align-self:flex-end;justify-content:flex-end}
+.chat-message.user>div{background:linear-gradient(135deg,#796cf0,#9a78e8);color:#fff;border-top-right-radius:4px}
+.chat-input{display:flex;gap:8px;padding:12px;border-top:1px solid #202a3e;background:#0a101b}
+.chat-input input{flex:1;min-width:0;background:#111a29;border:1px solid #28354c;color:#e4eafa;border-radius:10px;padding:11px 12px;outline:0;font-size:11px}
+.chat-input button{width:40px;border:0;border-radius:10px;background:#806ff2;color:#fff;display:grid;place-items:center}
+.chat-input button:disabled{opacity:.55}
+.chat-privacy{text-align:center;padding:8px;color:#56647d;font-size:8px;border-top:1px solid #151f30}
+.chat-fab{position:fixed;right:22px;bottom:22px;z-index:25;border:1px solid #4b4782;background:#17142f;color:#dcd8ff;border-radius:30px;padding:11px 15px;display:flex;align-items:center;gap:7px;box-shadow:0 15px 40px #0008;font-size:10px;font-weight:700}
+@media(max-width:620px){.chat-backdrop{padding:0;align-items:end}.chatbot{width:100%;max-height:92vh;border-radius:20px 20px 0 0}.chat-messages{min-height:330px}.chat-fab{right:14px;bottom:14px}}
